@@ -3,7 +3,8 @@
 
 #include "BaseComponent.hpp"
 
-class Oxygenator: public BaseComponent
+class Oxygenator
+    : public BaseComponent
 {
     public:
 

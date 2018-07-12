@@ -4,7 +4,7 @@
 class BaseComponent
 {
     public:
-        virtual ~BaseComponent();
+        virtual ~BaseComponent() {};
 };
 
 #endif

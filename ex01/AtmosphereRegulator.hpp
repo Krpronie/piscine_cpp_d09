@@ -3,7 +3,8 @@
 
 #include "BaseComponent.hpp"
 
-class AtmosphereRegulator: public BaseComponent
+class AtmosphereRegulator
+    : public BaseComponent
 {
     public:
         AtmosphereRegulator();

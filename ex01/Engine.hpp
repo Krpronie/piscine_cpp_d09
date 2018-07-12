@@ -4,7 +4,8 @@
 #include <cstddef>
 #include "BaseComponent.hpp"
 
-class Engine: public BaseComponent
+class Engine
+    : public BaseComponent
 {
     public:
 
@@ -17,7 +18,7 @@ class Engine: public BaseComponent
         float getX() const;
         float getY() const;
 
-    private:
+    protected:
         float _power;
         float _x;
         float _y;

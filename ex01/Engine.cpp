@@ -1,3 +1,5 @@
+#include <sstream>
+#include <iostream>
 #include <cmath>
 #include "Errors.hpp"
 #include "Engine.hpp"
@@ -12,13 +14,20 @@ Engine::Engine(float power, float x, float y)
 {
 }
 
-Engine::~Engine(){
-	
+Engine::~Engine()
+{
 }
 
-void
-Engine::goTorward(float x, float y)
+
+void Engine::goTorward(float x, float y)
 {
+    std::stringstream res2;
+
+    res2 << "Cannot reach destination (" << x << ", " << y << ").";
+    if (distanceTo(x, y) > _power) {
+        UserError er(res2.str(), "Engine");
+        throw er;
+    }
     _x = x;
     _y = y;
 }
@@ -26,7 +35,7 @@ Engine::goTorward(float x, float y)
 float
 Engine::distanceTo(float x, float y) const
 {
-    return std::sqrt(POW_2(ABS(x - _x)) + POW_2(ABS(y - _y)));
+    return std::sqrt(POW_2(ABS(x - getX())) + POW_2(ABS(y - getY())));
 }
 
 float
