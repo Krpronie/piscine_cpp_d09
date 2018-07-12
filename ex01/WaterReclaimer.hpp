@@ -4,20 +4,19 @@
 #include <cstddef>
 #include "BaseComponent.hpp"
 
-class WaterReclaimer
-    : public BaseComponent
+class WaterReclaimer : public BaseComponent 
 {
-    public:
-        WaterReclaimer();
-        virtual ~WaterReclaimer() {}
+public:
+    WaterReclaimer();
+    virtual ~WaterReclaimer() {}
 
-        void start();
-        void generateWater();
-        void useWater(int water);
+    void start();
+    void generateWater();
+    void useWater(int water);
 
-    private:
-        int _water;
-        bool _started;
+private:
+    int _water;
+    bool _started;
 };
 
 #endif

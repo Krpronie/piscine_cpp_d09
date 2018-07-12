@@ -3,20 +3,17 @@
 
 #include "BaseComponent.hpp"
 
-class Oxygenator
-    : public BaseComponent
+class Oxygenator : public BaseComponent 
 {
-    public:
+public:
+	Oxygenator();
+	virtual ~Oxygenator() {}
 
-        Oxygenator();
-        virtual ~Oxygenator() {}
+	void generateOxygen();
+	void useOxygen(int quantity);
 
-        void generateOxygen();
-        void useOxygen(int quantity);
-
-    private:
-        int _quantity;
-
+private:
+	int _quantity;
 };
 
 #endif

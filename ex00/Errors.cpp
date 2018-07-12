@@ -1,31 +1,32 @@
+
 #include "Errors.hpp"
 
-NasaError::NasaError(const std::string &message, const std::string &component) : _message(message), _component(component){
+NasaError::NasaError(std::string const &message,std::string const &component) :_message(message), _component(component){
 
 }
 
-std::string const& NasaError::getComponent() const 
+std::string const &NasaError::getComponent() const
 {
-    return _component;
+	return (this->_component);
 }
 
-MissionCriticalError::MissionCriticalError(std::string const &message, const std::string &component) : NasaError(message, component){
-
-}
-
-LifeCriticalError::LifeCriticalError(std::string const &message, const std::string &component) : NasaError(message, component){
-
-}
-
-CommunicationError::CommunicationError(std::string const &message) : NasaError(message, "CommunicationDevice"){
-
-}
-
-UserError::UserError(std::string const &message, const std::string &component) : NasaError(message, component){
-
-}
-
-const char *NasaError::what() const throw()
+const char *NasaError::what() const noexcept
 {
-    return this->_message.c_str();
+	return (this->_message.c_str());
+}
+
+LifeCriticalError::LifeCriticalError(std::string const &message,std::string const &component) :	NasaError(message, component){
+
+}
+
+MissionCriticalError::MissionCriticalError(std::string const &message,std::string const &component) :NasaError(message, component){
+
+}
+
+CommunicationError::CommunicationError(std::string const &message) :NasaError(message, "CommunicationDevice"){
+
+}
+
+UserError::UserError(std::string const &message,std::string const &component) :	NasaError(message, component){
+	
 }

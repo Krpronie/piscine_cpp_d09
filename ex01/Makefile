@@ -1,30 +1,26 @@
-NAME = RoverUnitTests
+NAME = test
 
-SRCS = \
-    Engine.cpp \
-    AtmosphereRegulator.cpp \
-    Oxygenator.cpp \
-    WaterReclaimer.cpp \
-    RoverUnitTests.cpp
+SRC	=	AtmosphereRegulator.cpp		\
+		Engine.cpp			\
+		Errors.cpp			\
+		Oxygenator.cpp			\
+		RoverUnitTests.cpp		\
+		WaterReclaimer.cpp
+OBJ = $(SRC:.cpp=.o)
 
-OBJS = $(SRCS:.cpp=.o)
-
-CXXFLAGS = -Wall -Wextra
-
-$(NAME): $(OBJS)
-    $(CXX) $(OBJS) -o $(NAME)
+CXX = g++
+CXXFLAGS = -W -Wall -Wextra -std=c++14 -g
+LDFLAGS =
 
 all: $(NAME)
 
+$(NAME): $(OBJ)
+	$(CXX) -o $(NAME) $(OBJ) $(LDFLAGS)
+
 clean:
-    $(RM) $(OBJS)
+	$(RM) $(OBJ)
 
 fclean: clean
-    $(RM) $(NAME)
+	$(RM) $(NAME)
 
 re: fclean all
-
-test: all
-    @./$(NAME)
-
-.PHONY: all clean fclean re test
