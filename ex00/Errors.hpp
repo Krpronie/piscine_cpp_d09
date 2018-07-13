@@ -1,4 +1,3 @@
-
 #ifndef ERRORS_HPP_
 #define ERRORS_HPP_
 

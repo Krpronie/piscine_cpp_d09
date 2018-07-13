@@ -1,4 +1,3 @@
-
 #include "Errors.hpp"
 
 NasaError::NasaError(std::string const &message,std::string const &component) :_message(message), _component(component){
